@@ -16,3 +16,13 @@
 .slogan {
 	font-size: 70px;
 }
+
+.signup {
+	color: #ffffff;
+	font-size: 14px;
+	line-height: 32px;
+}
+
+.signup:hover {
+	color: #ffffff;
+}
