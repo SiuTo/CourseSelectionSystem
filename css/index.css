@@ -1,9 +1,10 @@
-.about {
-	color: #000000;
-}
-
 .page-head {
 	background-color: #F5F5F5;
+}
+
+.page-head a {
+	color: #000000;
+	float: right;
 }
 
 .page-body {
@@ -26,3 +27,15 @@
 .signup:hover {
 	color: #ffffff;
 }
+
+.container-panels {
+	margin-top: 3%;
+}
+
+.operation-list button {
+	display: block;
+	margin-top: 3%;
+	margin-bottom: 3%;
+	width: 150px;
+}
+
