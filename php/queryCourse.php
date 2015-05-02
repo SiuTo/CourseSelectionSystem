@@ -5,22 +5,17 @@
 	$courseId=$_POST["courseId"];
 	$userId=$_SESSION["userId"];
 
-	$result=mysql_query("SELECT CNUM, CNAME FROM COURSE WHERE CID='$courseId'");
-	$row=mysql_fetch_array($result);
-	if (empty($row))
-	{
-		echo "<p>Fail: Course $courseId doesn't exist!</p>";
-		exit;
-	}
-	$cname=$row["CNAME"];
-	$num=$row["CNUM"];
-
-	$result=mysql_query("SELECT COUNT(*) FROM SC WHERE CID='$courseId'");
-	$row=mysql_fetch_array($result);
-	$vacancy=$num-$row[0];
-
+	$result=mysql_query("SELECT CID, CNAME, TNAME, CNUM FROM COURSE, TEACHER WHERE CID LIKE '$courseId%' AND COURSE.TID=TEACHER.TID");
 	echo "<table class='table table-striped'>";
-	echo "<thead><tr><th>Course Id</th><th>Course Name</th><th>Vacancy</th></tr></thead>";
-	echo "<tbody><tr><td>$courseId</td><td>$cname</td><td>$vacancy</td></tr></tbody></table>";
+	echo "<thead><tr><th>#</th><th>Course Id</th><th>Course Name</th><th>Teacher Name</th><th>Vacancy</th></tr></thead><tbody>";
+	$num=0;
+	while ($row=mysql_fetch_array($result))
+	{
+		++$num;
+		$cnt=mysql_fetch_array(mysql_query("SELECT COUNT(*) FROM SC WHERE CID='$row[CID]'"))[0];
+		$vacancy=$row[CNUM]-$cnt;
+		echo "<tr><td>$num</td><td>$row[CID]</td><td>$row[CNAME]</td><td>$row[TNAME]</td><td>$vacancy</td></tr>";
+	}
+	echo '</tbody></table>';
 ?>
 
