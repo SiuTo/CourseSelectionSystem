@@ -44,6 +44,6 @@
 	}
 	session_start();
 	$_SESSION["userId"]=$userId;
-	header("Location: $userType.php");
+	header("Location: ../$userType.php");
 ?>
 
