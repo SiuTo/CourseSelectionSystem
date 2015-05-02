@@ -18,6 +18,7 @@
 	<link rel="stylesheet" type="text/css" href="css/index.css" />
 	<script type="text/javascript" src="plugins/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript" src="plugins/bootstrap/bootstrap.js"></script>
+	<script type="text/javascript" src="js/student.js"></script>
 </head>
 
 <body>
@@ -47,10 +48,10 @@
 								<label for="courseId" class="control-label">Course Id</label>
 								<input type="text" id="courseId" class="form-control" name="courseId">
 							</div>
-							<button type="button" class="btn btn-default">Curriculum</button>
-							<button type="button" class="btn btn-default">Query Course</button>
-							<button type="button" class="btn btn-default">Add Course</button>
-							<button type="button" class="btn btn-default">Drop Course</button>
+							<button type="button" class="btn btn-default" id="curriculum">Curriculum</button>
+							<button type="button" class="btn btn-default" id="queryCourse">Query Course</button>
+							<button type="button" class="btn btn-default" id="addCourse">Add Course</button>
+							<button type="button" class="btn btn-default" id="dropCourse">Drop Course</button>
 						</form>
 					</div>
 				</div>
@@ -60,8 +61,7 @@
 					<div class="panel-heading">
 						<h3 class="panel-title">Course panel</h3>
 					</div>
-					<div class="panel-body">
-						dab
+					<div id="showResultPanel" class="panel-body">
 					</div>
 				</div>
 			</div>

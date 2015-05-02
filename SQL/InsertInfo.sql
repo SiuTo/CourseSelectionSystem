@@ -1,5 +1,6 @@
 use CourseSelect;
 
+<<<<<<< HEAD
 INSERT INTO DEPARTMENT 
 	VALUES('0713', '计算机学院', '王晓阳'),
 		  ('0024', '保密管理学院', '薛向阳'),
@@ -40,3 +41,14 @@ INSERT INTO CSCHEDULE
 	VALUES('CS.0001', '周三6-8', 'Z2311'),
 	      ('CS.0002', '周三3-4', 'Z2201'),
 	      ('CS.0003', '周一6-8', 'Z2101');
+=======
+INSERT INTO STUDENT(SID, PASSWORD, SNAME)
+VALUES ('13307130319', 'QWERTY', '梁晓涛');
+
+INSERT INTO COURSE(CID, CNAME)
+VALUES ('123', 'COMP'), ('456', 'PHYSIC'), ('789', 'ENGLISH');
+
+INSERT INTO SC(SID, CID)
+VALUES ('13307130319', '123'), ('13307130319', '456'),('13307130319', '789');
+
+>>>>>>> 82a24cac109bc188b560e71d862adc43a4afe22c
