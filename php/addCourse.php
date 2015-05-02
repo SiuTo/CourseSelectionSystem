@@ -2,21 +2,34 @@
 	session_start();
 	require "ConnectDB.php";
 
-	$result=mysql_query("SELECT CID FROM COURSE WHERE CID='$_POST[courseId]'");
-	if (empty(mysql_fetch_array($result)))
+	$courseId=$_POST["courseId"];
+	$userId=$_SESSION["userId"];
+
+	$result=mysql_query("SELECT CNUM FROM COURSE WHERE CID='$courseId'");
+	$row=mysql_fetch_array($result);
+	if (empty($row))
 	{
-		echo "<p>Fail: Course $_POST[courseId] doesn't exist!</p>";
+		echo "<p>Fail: Course $courseId doesn't exist!</p>";
 		exit;
 	}
+	$cnum=$row["CNUM"];
 
-	$result=mysql_query("SELECT CID FROM SC WHERE CID='$_POST[courseId]' AND SID='$_SESSION[userId]'");
+	$result=mysql_query("SELECT CID FROM SC WHERE CID='$courseId' AND SID='$userId'");
 	if (!empty(mysql_fetch_array($result)))
 	{
-		echo "<p>Fail: Course $_POST[courseId] has been selected!</p>";
+		echo "<p>Fail: Course $courseId has been selected!</p>";
 		exit;
 	}
 
-	mysql_query("INSERT INTO SC(SID, CID) VALUES('$_SESSION[userId]', '$POST[courseId]')");
-	echo "<p>Succeed: Course $_POST[courseId] added!</p>";
+	$result=mysql_query("SELECT COUNT(*) FROM SC WHERE CID='$courseId'");
+	$row=mysql_fetch_array($result);
+	if ($row[0]>=$cnum)
+	{
+		echo "<p>Fail: There is no vacancy for course $courseId!</p>";
+		exit;
+	}
+
+	mysql_query("INSERT INTO SC(SID, CID) VALUES('$userId', '$courseId')");
+	echo "<p>Succeed: Course $courseId added!</p>";
 ?>
 
