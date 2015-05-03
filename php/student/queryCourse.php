@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	require "ConnectDB.php";
+	require "../ConnectDB.php";
 
 	$courseId=$_POST["courseId"];
 	$userId=$_SESSION["userId"];

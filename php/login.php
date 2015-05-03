@@ -42,7 +42,7 @@
 		session_start();
 		$_SESSION["userId"]=$userId;
 		$_SESSION["userType"]=$userType;
-		header("Location: ../$userType.php");
+		header("Location: $userType/$userType.php");
 	}else
 	{
 		if (!empty($info))
@@ -53,9 +53,9 @@
 		if ($userType=="student")
 			mysql_query("INSERT INTO STUDENT(SID, PASSWORD) VALUES ('$userId', '$password')");
 		else if ($userType=="teacher")
-			mysql_query("INSERT INTO STUDENT(TID, PASSWORD) VALUES ('$userId', '$password')");
+			mysql_query("INSERT INTO TEACHER(TID, PASSWORD) VALUES ('$userId', '$password')");
 		else if ($userType=="admin")
-			mysql_query("INSERT INTO STUDENT(AID, PASSWORD) VALUES ('$userId', '$password')");
+			mysql_query("INSERT INTO ADMIN(AID, PASSWORD) VALUES ('$userId', '$password')");
 		echo "<script>alert('Succeed!'); history.go(-1);</script>";
 	}
 ?>

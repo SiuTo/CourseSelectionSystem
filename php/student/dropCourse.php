@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	require "ConnectDB.php";
+	require "../ConnectDB.php";
 
 	$userId=$_SESSION["userId"];
 	$courseId=$_POST["courseId"];
@@ -9,18 +9,18 @@
 	$row=mysql_fetch_array($result);
 	if (empty($row))
 	{
-		echo "<p>Fail: Course $courseId doesn't exist!</p>";
+		echo "Fail:\n\n\tCourse $courseId doesn't exist!";
 		exit;
 	}
 
 	$result=mysql_query("SELECT CID FROM SC WHERE CID='$courseId' AND SID='$userId'");
 	if (empty(mysql_fetch_array($result)))
 	{
-		echo "<p>Fail: Course $courseId has not been selected!</p>";
+		echo "Fail:\n\n\tCourse $courseId has not been selected!";
 		exit;
 	}
 
 	mysql_query("DELETE FROM SC WHERE CID='$courseId' AND SID='$userId'");
-	echo "<p>Succeed: Course $courseId dropped!</p>";
+	echo "Succeed:\n\n\tCourse $courseId dropped!";
 ?>
 

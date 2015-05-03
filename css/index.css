@@ -2,9 +2,29 @@
 	background-color: #F5F5F5;
 }
 
-.page-head a {
+.page-head-right {
+	background-color: #E7E7E7;
 	color: #000000;
+	font-size: 21px;
+	line-height: 1.3;
+	margin-top: 17px;
+	padding: 7px;
 	float: right;
+	border-radius: 7px;
+}
+
+.page-head-right a {
+	color: #000000;
+}
+
+.page-head-right a:hover, .page-head-right a:focus {
+	color: #337ab7;
+	text-decoration: none;
+}
+
+.page-head-right .dropdown-menu {
+	top: 125%;
+	left: -7px;
 }
 
 .page-body {

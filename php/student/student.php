@@ -1,8 +1,8 @@
 <?php
 	session_start();
-	if (!isset($_SESSION["userId"]))
+	if (!isset($_SESSION["userId"]) || $_SESSION["userType"]!="student")
 	{
-		echo '<script>alert("Login first please!");window.location.href="index.html";</script>';
+		echo '<script>alert("Login first please!");window.location.href="../../index.php";</script>';
 		exit;
 	}
 ?>
@@ -13,11 +13,11 @@
 	<title>Fudan Course Selection System</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="plugins/bootstrap/css/bootstrap.css" />
-	<link rel="stylesheet" type="text/css" href="css/index.css" />
-	<script type="text/javascript" src="plugins/jquery-1.11.2.min.js"></script>
-	<script type="text/javascript" src="plugins/bootstrap/js/bootstrap.js"></script>
-	<script type="text/javascript" src="js/student.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../plugins/bootstrap/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/index.css" />
+	<script type="text/javascript" src="../../plugins/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="../../plugins/bootstrap/js/bootstrap.js"></script>
+	<script type="text/javascript" src="../../js/student.js"></script>
 </head>
 
 <body>
@@ -28,7 +28,18 @@
 					<h1>Fudan Course Selection System</h1>
 				</div>
 				<div class="col-sm-4">
-					<h2><a href="#">Student: <?php echo $_SESSION["userId"]; ?></a></h2>
+					<div class="page-head-right">
+						<div class="dropdown">
+							<a id="dLabel" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+								<?php echo $_SESSION["userId"]; ?>
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+								<li role="presentation"><a role="menuitem" href="#">Profile</a></li>
+								<li role="presentation"><a role="menuitem" href="../signout.php">Sign out</a></li>
+							</ul>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

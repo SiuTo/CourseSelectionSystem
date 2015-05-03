@@ -1,19 +1,32 @@
 $(document).ready(function() {
 
 	$("#curriculum").click(function() {
-		$("#showResultPanel").load("php/curriculum.php");
+		$("#showResultPanel").load("curriculum.php");
 	});
 
 	$("#queryCourse").click(function() {
-		$("#showResultPanel").load("php/queryCourse.php", {courseId: $("#courseId").val()});
+		$("#showResultPanel").load("queryCourse.php", {courseId: $("#courseId").val()});
 	});
 
 	$("#addCourse").click(function() {
-		$("#showResultPanel").load("php/addCourse.php", {courseId: $("#courseId").val()});
+		$.post("addCourse.php",
+			{courseId: $("#courseId").val()},
+			function(data, status) {
+				alert(data);
+			}
+		);
+		$("#showResultPanel").load("curriculum.php");
 	});
 
 	$("#dropCourse").click(function() {
-		$("#showResultPanel").load("php/dropCourse.php", {courseId: $("#courseId").val()});
+		$.post("dropCourse.php",
+			{courseId: $("#courseId").val()},
+			function(data, status) {
+				alert(data);
+			}
+		);
+		$("#showResultPanel").load("curriculum.php");
+
 	});
 
 });

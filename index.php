@@ -1,3 +1,12 @@
+<?php
+	session_start();
+	if (isset($_SESSION["userId"]))
+	{
+		header("Location: php/$_SESSION[userType]/$_SESSION[userType].php");
+		exit;
+	}
+?>
+
 <!DOCTYPE HTML>
 <html>
 
@@ -19,7 +28,7 @@
 					<h1>Fudan Course Selection System</h1>
 				</div>
 				<div class="col-sm-4">
-					<h2><a href="about.html">About</a></h2>
+					<div class="page-head-right"><a href="about.html">About</a></div>
 				</div>
 			</div>
 		</div>
@@ -57,10 +66,10 @@
 						</div>
 						<div class="form-group">
 							<div class="col-sm-offset-3 col-sm-3">
-								<button type="submit" class="btn btn-default">Sign in</button>
+								<button type="submit" name="submit" value="signIn" class="btn btn-default">Sign in</button>
 							</div>
 							<div class="col-sm-offset-1 col-sm-3">
-								<a class="signup" href="signup.html">Sign up</a>
+								<button type="submit" name="submit" value="signUp" class="btn btn-default">Sign up</button>
 							</div>
 						</div>
 					</form>
