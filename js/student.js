@@ -1,5 +1,12 @@
 $(document).ready(function() {
 
+	function alertResult(data, status) {
+		var pos=data.indexOf(":");
+		$("#alertModal .modal-title").text(data.slice(0, pos));
+		$("#alertModal .modal-body").text(data.slice(pos+1));
+		$("#alertModal").modal("toggle");
+	}
+
 	$("#curriculum").click(function() {
 		$("#showResultPanel").load("curriculum.php");
 	});
@@ -9,22 +16,12 @@ $(document).ready(function() {
 	});
 
 	$("#addCourse").click(function() {
-		$.post("addCourse.php",
-			{courseId: $("#courseId").val()},
-			function(data, status) {
-				alert(data);
-			}
-		);
+		$.post("addCourse.php", {courseId: $("#courseId").val()}, alertResult);
 		$("#showResultPanel").load("curriculum.php");
 	});
 
 	$("#dropCourse").click(function() {
-		$.post("dropCourse.php",
-			{courseId: $("#courseId").val()},
-			function(data, status) {
-				alert(data);
-			}
-		);
+		$.post("dropCourse.php", {courseId: $("#courseId").val()}, alertResult);
 		$("#showResultPanel").load("curriculum.php");
 
 	});

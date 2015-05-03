@@ -4,7 +4,7 @@
 
 	$result=mysql_query("SELECT COURSE.CID, CNAME, TNAME FROM SC, COURSE, TEACHER WHERE SID='$_SESSION[userId]' AND COURSE.CID=SC.CID AND COURSE.TID=TEACHER.TID");
 	echo '<table class="table table-striped">';
-	echo '<thead><tr><th>#</th><th>Course Id</th><th>Course Name</th><th>Teacher Name</th></tr></thead><tbody>';
+	echo '<thead><tr><th>#</th><th>Course Id</th><th>Course Name</th><th>Teacher</th></tr></thead><tbody>';
 	$num=0;
 	while ($row=mysql_fetch_array($result))
 	{

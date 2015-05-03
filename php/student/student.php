@@ -67,6 +67,20 @@
 				</div>
 			</div>
 			<div class="col-md-8">
+				<div id="alertModal" class="modal fade">
+					<div class="modal-dialog modal-sm">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+								<h4 class="modal-title"></h4>
+							</div>
+							<div class="modal-body"></div>
+						</div>
+					</div>
+				</div>
+
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<h3 class="panel-title">Course panel</h3>

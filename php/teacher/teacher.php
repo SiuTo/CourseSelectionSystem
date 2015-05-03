@@ -47,28 +47,13 @@
 
 	<div class="container container-panels">
 		<div class="row">
-			<div class="col-md-4">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h3 class="panel-title">Operation panel</h3>
-					</div>
-					<div class="panel-body">
-						<form class="operation-list" action="" method="get">
-							<div class="form-group">
-								<label for="courseId" class="control-label">Course Id</label>
-								<input type="text" id="courseId" class="form-control" name="courseId">
-							</div>
-							<button type="button" class="btn btn-default" id="showCourse">Show Course</button>
-						</form>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-8">
+			<div class="col-md-8 col-md-offset-2">
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<h3 class="panel-title">Course panel</h3>
 					</div>
-					<div id="showResultPanel" class="panel-body">
+					<div class="panel-body">
+						<?php require "showCourse.php"; ?>
 					</div>
 				</div>
 			</div>

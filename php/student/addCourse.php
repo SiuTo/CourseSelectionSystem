@@ -9,7 +9,7 @@
 	$row=mysql_fetch_array($result);
 	if (empty($row))
 	{
-		echo "Fail:\n\n\tCourse $courseId doesn't exist!";
+		echo "Fail:Course $courseId doesn't exist!";
 		exit;
 	}
 	$cnum=$row["CNUM"];
@@ -17,7 +17,7 @@
 	$result=mysql_query("SELECT CID FROM SC WHERE CID='$courseId' AND SID='$userId'");
 	if (!empty(mysql_fetch_array($result)))
 	{
-		echo "Fail:\n\n\tCourse $courseId has been selected!";
+		echo "Fail:Course $courseId has been selected!";
 		exit;
 	}
 
@@ -25,11 +25,11 @@
 	$row=mysql_fetch_array($result);
 	if ($row[0]>=$cnum)
 	{
-		echo "Fail:\n\n\tThere is no vacancy for course $courseId!";
+		echo "Fail:There is no vacancy for course $courseId!";
 		exit;
 	}
 
 	mysql_query("INSERT INTO SC(SID, CID) VALUES('$userId', '$courseId')");
-	echo "Succeed:\n\n\tCourse $courseId added!";
+	echo "Succeed:Course $courseId added!";
 ?>
 
