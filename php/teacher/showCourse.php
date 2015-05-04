@@ -1,5 +1,5 @@
 <?php
-	session_start();
+	require "../verifyUser.php";
 	require "../ConnectDB.php";
 
 	$userId=$_SESSION["userId"];

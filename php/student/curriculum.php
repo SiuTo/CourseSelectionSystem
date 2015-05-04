@@ -1,5 +1,5 @@
 <?php
-	session_start();
+	require "../verifyUser.php";
 	require "../ConnectDB.php";
 
 	$result=mysql_query("SELECT COURSE.CID, CNAME, TNAME FROM SC, COURSE, TEACHER WHERE SID='$_SESSION[userId]' AND COURSE.CID=SC.CID AND COURSE.TID=TEACHER.TID ORDER BY COURSE.CID ASC");

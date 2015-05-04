@@ -1,10 +1,5 @@
 <?php
-	session_start();
-	if (!isset($_SESSION["userId"]) || $_SESSION["userType"]!="teacher")
-	{
-		echo '<script>alert("Login first please!");window.location.href="../../index.php";</script>';
-		exit;
-	}
+	require "../verifyUser.php";
 ?>
 <!DOCTYPE HTML>
 <html>
