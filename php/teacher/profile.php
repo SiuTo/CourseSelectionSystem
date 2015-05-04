@@ -12,7 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="../../css/index.css" />
 	<script type="text/javascript" src="../../plugins/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript" src="../../plugins/bootstrap/js/bootstrap.js"></script>
-	<script type="text/javascript" src="../../js/student.js"></script>
+	<script type="text/javascript" src="../../js/teacher.js"></script>
 </head>
 
 <body>
@@ -50,16 +50,16 @@
 
 					<?php
 						require "../ConnectDB.php";
-						$result=mysql_query("SELECT SID, PASSWORD, SNAME, SBIRTH, SSEX, SYEAR, DNAME FROM STUDENT, DEPARTMENT WHERE SID='$_SESSION[userId]' AND STUDENT.DID=DEPARTMENT.DID");
+						$result=mysql_query("SELECT TID, PASSWORD, TNAME, TBIRTH, TSEX, TTITLE, DNAME FROM TEACHER, DEPARTMENT WHERE TID='$_SESSION[userId]' AND TEACHER.DID=DEPARTMENT.DID");
 						$row=mysql_fetch_array($result);
 					?>
 
 					<div class="panel-body">
 						<form method="post" action="modify.php" class="form-horizontal">
 							<div class="form-group">
-								<label for="sid" class="col-sm-3 control-label">Student ID</label>
+								<label for="tid" class="col-sm-3 control-label">Teacher ID</label>
 								<div class="col-sm-7">
-									<input type="text" class="form-control" id="sid" value="<?php echo $row["SID"];?>" readonly>
+									<input type="text" class="form-control" id="rid" value="<?php echo $row["TID"];?>" readonly>
 								</div>
 							</div>
 							<div class="form-group">
@@ -83,30 +83,30 @@
 							<div class="form-group">
 								<label for="name" class="col-sm-3 control-label">Name</label>
 								<div class="col-sm-7">
-									<input type="text" class="form-control" id="name" name="name" value="<?php echo $row["SNAME"];?>">
+									<input type="text" class="form-control" id="name" name="name" value="<?php echo $row["TNAME"];?>">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="birth" class="col-sm-3 control-label">Birth</label>
 								<div class="col-sm-7">
-									<input type="text" class="form-control" id="birth" name="birth" value="<?php echo $row["SBIRTH"];?>">
+									<input type="text" class="form-control" id="birth" name="birth" value="<?php echo $row["TBIRTH"];?>">
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Gender</label>
 								<div class="col-sm-7">
 									<label class="radio-inline">
-										<input name="gender" type="radio" value="M" <?php if ($row["SSEX"]=="M") echo "checked";?>>Male
+										<input name="gender" type="radio" value="M" <?php if ($row["TSEX"]=="M") echo "checked";?>>Male
 									</label>
 									<label class="radio-inline">
-										<input name="gender" type="radio" value="F" <?php if ($row["SSEX"]=="F") echo "checked";?>>Female
+										<input name="gender" type="radio" value="F" <?php if ($row["TSEX"]=="F") echo "checked";?>>Female
 									</label>
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="year" class="col-sm-3 control-label">Registered in</label>
+								<label for="title" class="col-sm-3 control-label">Title</label>
 								<div class="col-sm-7">
-									<input type="text" class="form-control" id="year" value="<?php echo $row["SYEAR"];?>" readonly>
+									<input type="text" class="form-control" id="title" value="<?php echo $row["TTITLE"];?>" readonly>
 								</div>
 							</div>
 							<div class="form-group">

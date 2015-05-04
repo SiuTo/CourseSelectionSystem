@@ -9,3 +9,11 @@ function loadList(courseId) {
 	);
 }
 
+$(document).ready(function() {
+
+	$("#back").click(function() {
+		window.location.href="teacher.php";
+	});
+
+});
+
