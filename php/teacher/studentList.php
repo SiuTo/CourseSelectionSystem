@@ -4,7 +4,7 @@
 
 	$cid=$_POST["CID"];
 
-	$result=mysql_query("SELECT STUDENT.SID, SNAME FROM STUDENT, SC WHERE STUDENT.SID=SC.SID AND CID='$cid'");
+	$result=mysql_query("SELECT STUDENT.SID, SNAME FROM STUDENT, SC WHERE STUDENT.SID=SC.SID AND CID='$cid' ORDER BY STUDENT.SID ASC");
 	echo "<table class='table table-striped'>";
 	echo "<thead><tr><th>#</th><th>Student Id</th><th>Student Name</th></tr></thead><tbody>";
 	$num=0;

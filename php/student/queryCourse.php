@@ -5,7 +5,7 @@
 	$courseId=$_POST["courseId"];
 	$userId=$_SESSION["userId"];
 
-	$result=mysql_query("SELECT CID, CNAME, TNAME, CREDIT, CNUM FROM COURSE, TEACHER WHERE CID LIKE '$courseId%' AND COURSE.TID=TEACHER.TID");
+	$result=mysql_query("SELECT CID, CNAME, TNAME, CREDIT, CNUM FROM COURSE, TEACHER WHERE CID LIKE '$courseId%' AND COURSE.TID=TEACHER.TID ORDER BY CID ASC");
 	echo "<table class='table table-striped'>";
 	echo "<thead><tr><th>#</th><th>Course Id</th><th>Course Name</th><th>Credit</th><th>Teacher</th><th>Vacancy</th></tr></thead><tbody>";
 	$num=0;
