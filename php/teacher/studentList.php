@@ -2,8 +2,7 @@
 	session_start();
 	require "../ConnectDB.php";
 
-	$cid=$_GET["CID"];
-	echo $cid;
+	$cid=$_POST["CID"];
 
 	$result=mysql_query("SELECT STUDENT.SID, SNAME FROM STUDENT, SC WHERE STUDENT.SID=SC.SID AND CID='$cid'");
 	echo "<table class='table table-striped'>";

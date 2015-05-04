@@ -13,7 +13,7 @@
 		++$num;
 		$cnt=mysql_fetch_array(mysql_query("SELECT COUNT(*) FROM SC WHERE CID='$row[CID]'"))[0];
 		echo "<tr><td>$num</td><td>$row[CID]</td><td>$row[CNAME]</td><td>$row[CREDIT]</td><td>$row[CNUM]</td>"
-			."<td><a href='studentList.php?CID=$row[CID]'>$cnt</a></td></tr>";
+			."<td><a href='#' onclick='loadList(\"$row[CID]\")'>$cnt</a></td></tr>";
 	}
 	echo '</tbody></table>';
 ?>

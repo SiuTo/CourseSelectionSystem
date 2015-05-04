@@ -1,8 +1,11 @@
-$(document).ready(function() {
-
-	$("#showCourse").click(function() {
-		$("#showResultPanel").load("showCourse.php");
-	});
-
-});
+function loadList(courseId) {
+	$("#alertModal .modal-title").text("Course "+courseId);
+	$("#alertModal .modal-body").load(
+		"studentList.php",
+		{CID: courseId},
+		function(){
+			$("#alertModal").modal("toggle");
+		}
+	);
+}
 
