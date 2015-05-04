@@ -3,7 +3,8 @@
 	require "../ConnectDB.php";
 
 	$courseId=$_POST["courseId"];
-	$userId=$_SESSION["userId"];
+	if ($_SESSION["userType"]=="admin") $sid=$_POST["sid"];
+	else $sid=$_SESSION["userId"];
 
 	$result=mysql_query("SELECT CNUM FROM COURSE WHERE CID='$courseId'");
 	$row=mysql_fetch_array($result);
@@ -14,7 +15,7 @@
 	}
 	$cnum=$row["CNUM"];
 
-	$result=mysql_query("SELECT CID FROM SC WHERE CID='$courseId' AND SID='$userId'");
+	$result=mysql_query("SELECT CID FROM SC WHERE CID='$courseId' AND SID='$sid'");
 	if (!empty(mysql_fetch_array($result)))
 	{
 		echo "Fail:Course $courseId has been selected!";
@@ -29,7 +30,7 @@
 		exit;
 	}
 
-	mysql_query("INSERT INTO SC(SID, CID) VALUES('$userId', '$courseId')");
+	mysql_query("INSERT INTO SC(SID, CID) VALUES('$sid', '$courseId')");
 	echo "Succeed:Course $courseId added!";
 ?>
 

@@ -40,9 +40,9 @@
 		</div>
 	</div>
 
-	<div class="container container-panels">
+	<div class="container container-body">
 		<div class="row">
-			<div class="col-md-4">
+			<div class="col-sm-4">
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<h3 class="panel-title">Operation panel</h3>
@@ -61,7 +61,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-8">
+			<div class="col-sm-8">
 				<div id="alertModal" class="modal fade">
 					<div class="modal-dialog modal-sm">
 						<div class="modal-content">

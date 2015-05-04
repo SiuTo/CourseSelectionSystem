@@ -40,9 +40,9 @@
 		</div>
 	</div>
 
-	<div class="container container-panels">
+	<div class="container container-body">
 		<div class="row">
-			<div class="col-md-8 col-md-offset-2">
+			<div class="col-sm-8 col-sm-offset-2">
 				<div id="alertModal" class="modal fade">
 					<div class="modal-dialog">
 						<div class="modal-content">
