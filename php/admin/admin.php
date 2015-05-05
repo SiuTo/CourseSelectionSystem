@@ -48,6 +48,20 @@
 			</ul>
 
 			<div class="tab-content container-body">
+				<div id="alertModal" class="modal fade">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+								<h4 class="modal-title"></h4>
+							</div>
+							<div class="modal-body"></div>
+						</div>
+					</div>
+				</div>
+
 				<div role="tabpanel" class="tab-pane active" id="student">
 					<div class="row">
 						<div class="col-sm-4">
@@ -75,7 +89,7 @@
 								<div class="panel-heading">
 									<h3 class="panel-title">Student Panel</h3>
 								</div>
-								<div id="showResultPanel" class="panel-body">
+								<div id="showResultPanel-stu" class="panel-body">
 								</div>
 							</div>
 						</div>
@@ -83,9 +97,72 @@
 				</div>
 
 				<div role="tabpanel" class="tab-pane" id="teacher">
+					<div class="row">
+						<div class="col-sm-4">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">Operation panel</h3>
+								</div>
+								<div class="panel-body">
+									<form class="form">
+										<div class="form-group">
+											<label for="teaTid" class="control-label">Teacher Id</label>
+											<input type="text" id="teaTid" class="form-control">
+										</div>
+										<div class="form-group">
+											<label for="teaDid" class="control-label">Department Id</label>
+											<input type="text" id="teaDid" class="form-control">
+										</div>
+										<button type="button" class="btn btn-default" id="teaQuery">Query</button>
+									</form>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-8">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">Teacher Panel</h3>
+								</div>
+								<div id="showResultPanel-tea" class="panel-body">
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 
 				<div role="tabpanel" class="tab-pane" id="course">
+					<div class="row">
+						<div class="col-sm-4">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">Operation panel</h3>
+								</div>
+								<div class="panel-body">
+									<form class="form">
+										<div class="form-group">
+											<label for="courseCid" class="control-label">Course Id</label>
+											<input type="text" id="courseCid" class="form-control">
+										</div>
+										<div class="form-group">
+											<label for="courseDid" class="control-label">Department Id</label>
+											<input type="text" id="courseDid" class="form-control">
+										</div>
+										<button type="button" class="btn btn-default" id="courseQuery">Query</button>
+									</form>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-8">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">Course Panel</h3>
+								</div>
+								<div id="showResultPanel-course" class="panel-body">
+								</div>
+							</div>
+						</div>
+					</div>
+
 				</div>
 			</div>
 		</div>

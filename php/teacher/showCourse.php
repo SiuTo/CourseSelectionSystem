@@ -2,9 +2,10 @@
 	require "../verifyUser.php";
 	require "../ConnectDB.php";
 
-	$userId=$_SESSION["userId"];
+	if ($_SESSION["userType"]=="admin") $tid=$_POST["tid"];
+	else $tid=$_SESSION["userId"];
 
-	$result=mysql_query("SELECT CID, CNAME, CREDIT, CNUM FROM COURSE, TEACHER WHERE COURSE.TID=TEACHER.TID AND TEACHER.TID=$userId ORDER BY CID");
+	$result=mysql_query("SELECT CID, CNAME, CREDIT, CNUM FROM COURSE, TEACHER WHERE COURSE.TID=TEACHER.TID AND TEACHER.TID=$tid ORDER BY CID");
 	echo "<table class='table table-striped'>";
 	echo "<thead><tr><th>#</th><th>Course Id</th><th>Course Name</th><th>Credit</th><th>Available</th><th>Number of Students</th></tr></thead><tbody>";
 	$num=0;

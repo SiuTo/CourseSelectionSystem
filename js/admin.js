@@ -1,5 +1,5 @@
 $("#stuQuery").click(function() {
-	$("#showResultPanel").load(
+	$("#showResultPanel-stu").load(
 		"stuQuery.php",
 		{
 			sid: $("#stuSid").val(),
@@ -8,6 +8,12 @@ $("#stuQuery").click(function() {
 	);
 });
 
+function alertResult(data, status) {
+	var pos=data.indexOf(":");
+	$("#alertModal .modal-title").text(data.slice(0, pos));
+	$("#alertModal .modal-body").text(data.slice(pos+1));
+	$("#alertModal").modal("toggle");
+}
 
 function addStuCourse() {
 	$.post("../student/addCourse.php",
@@ -15,13 +21,10 @@ function addStuCourse() {
 			sid: $("#stuSid").val(),
 			courseId: $("#courseId").val()
 		},
-		function(data, status)
-		{
-			alert(data);
-		}
+		alertResult
 	);
 
-	$("#showResultPanel").load(
+	$("#showResultPanel-stu").load(
 		"stuQuery.php",
 		{
 			sid: $("#stuSid").val(),
@@ -36,13 +39,10 @@ function dropStuCourse() {
 			sid: $("#stuSid").val(),
 			courseId: $("#courseId").val()
 		},
-		function(data, status)
-		{
-			alert(data);
-		}
+		alertResult
 	);
 
-	$("#showResultPanel").load(
+	$("#showResultPanel-stu").load(
 		"stuQuery.php",
 		{
 			sid: $("#stuSid").val(),
@@ -50,4 +50,35 @@ function dropStuCourse() {
 		}
 	);
 }
+
+$("#teaQuery").click(function() {
+	$("#showResultPanel-tea").load(
+		"teaQuery.php",
+		{
+			tid: $("#teaTid").val(),
+			did: $("#teaDid").val()
+		}
+	);
+});
+
+function loadList(courseId) {
+	$("#alertModal .modal-title").text("Course "+courseId);
+	$("#alertModal .modal-body").load(
+		"../teacher/studentList.php",
+		{CID: courseId},
+		function(){
+			$("#alertModal").modal("toggle");
+		}
+	);
+}
+
+$("#courseQuery").click(function() {
+	$("#showResultPanel-course").load(
+		"courseQuery.php",
+		{
+			cid: $("#courseCid").val(),
+			did: $("#courseDid").val()
+		}
+	);
+});
 
