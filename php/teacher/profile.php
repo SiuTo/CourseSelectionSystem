@@ -12,7 +12,6 @@
 	<link rel="stylesheet" type="text/css" href="../../css/index.css" />
 	<script type="text/javascript" src="../../plugins/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript" src="../../plugins/bootstrap/js/bootstrap.js"></script>
-	<script type="text/javascript" src="../../js/teacher.js"></script>
 </head>
 
 <body>
@@ -123,6 +122,7 @@
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript" src="../../js/teacher.js"></script>
 </body>
 
 </html>

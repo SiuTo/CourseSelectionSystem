@@ -23,8 +23,8 @@
 				<label for="courseId">Course Id</label>
 				<input type="text" class="form-control" id="courseId">
 			</div>
-			<button type="button" id="addStuCourse" class="btn btn-default">Add</button>
-			<button type="button" id="dropStuCourse" class="btn btn-default">Drop</button>
+			<button type="button" onclick="addStuCourse()" class="btn btn-default">Add</button>
+			<button type="button" onclick="dropStuCourse()" class="btn btn-default">Drop</button>
 		</form>';
 
 	}else
