@@ -14,9 +14,9 @@
 			echo '<script>alert("The course '.$tid.' doesn\'t exist!");</script>';
 			exit;
 		}
-		echo "<div class='row'><h4 class='col-sm-3'>course: $tid $row[CNAME]</h4>";
-		echo "<div class='col-sm-1'><button class='btn btn-primary' onclick='dropCourse()'>Edit</button></div>";
-		echo "<div class='col-sm-1'><button class='btn btn-danger' onclick='deleteCourse()'>Delete</button></div></div>";
+		echo "<div class='row'><h4 class='col-sm-6'>course: $cid $row[CNAME]</h4>";
+		echo "<div class='col-sm-offset-1 col-sm-2'><button class='btn btn-primary' onclick='editCourse()'>Edit</button></div>";
+		echo "<div class='col-sm-2'><button class='btn btn-danger' onclick='deleteCourse()'>Delete</button></div></div>";
 
 		require "../teacher/studentList.php";
 

@@ -65,7 +65,7 @@ function loadList(courseId) {
 	$("#alertModal .modal-title").text("Course "+courseId);
 	$("#alertModal .modal-body").load(
 		"../teacher/studentList.php",
-		{CID: courseId},
+		{cid: courseId},
 		function(){
 			$("#alertModal").modal("toggle");
 		}
@@ -81,4 +81,40 @@ $("#courseQuery").click(function() {
 		}
 	);
 });
+
+function deleteCourse()
+{
+	$.post("deleteCourse.php",
+		{
+			cid: $("#courseCid").val()
+		},
+		function(){
+			$("#showResultPanel-course").text("");
+		}
+	);
+}
+
+function deleteTeacher()
+{
+	$.post("deleteTeacher.php",
+		{
+			tid: $("#teaTid").val()
+		},
+		function(){
+			$("#showResultPanel-tea").text("");
+		}
+	);
+}
+
+function deleteStudetnt()
+{
+	$.post("deleteStudent.php",
+		{
+			sid: $("#stuSid").val()
+		},
+		function(){
+			$("#showResultPanel-stu").text("");
+		}
+	);
+}
 

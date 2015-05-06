@@ -14,7 +14,9 @@
 			echo '<script>alert("The teacher '.$tid.' doesn\'t exist!");</script>';
 			exit;
 		}
-		echo "<h4>Teacher: $tid $row[TNAME]</h4>";
+		echo "<div class='row'><h4 class='col-sm-6'>Teacher: $tid $row[TNAME]</h4>";
+		echo "<div class='col-sm-offset-1 col-sm-2'><button class='btn btn-primary' onclick='editTeacher()'>Edit</button></div>";
+		echo "<div class='col-sm-2'><button class='btn btn-danger' onclick='deleteTeacher()'>Delete</button></div></div>";
 
 		require "../teacher/showCourse.php";
 	}else

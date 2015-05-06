@@ -1,0 +1,12 @@
+<?php
+	require "../verifyUser.php";
+	require "../ConnectDB.php";
+
+	$tid=$_POST["tid"];
+	
+	mysql_query("DELETE FROM SC WHERE CID IN (SELECT SC.CID FROM SC, COURSE WHERE SC.CID=COURSE.CID AND COURSE.TID=$tid)");
+	mysql_query("DELETE FROM CSCHEDULE WHERE CID IN (SELECT CSCHEDULE.CID FROM CSCHEDULE, COURSE WHERE CSCHEDULE.CID=COURSE.CID AND COURSE.TID=$tid)");
+	mysql_query("DELETE FROM COURSE WHERE TID='$tid'");
+	mysql_query("DELETE FROM TEACHER WHERE TID='$tid'");
+?>
+
