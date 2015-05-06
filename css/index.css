@@ -63,3 +63,13 @@ button {
 	width: 100px;
 }
 
+button a {
+	width: 100px;
+	color: #ffffff;
+}
+
+button a:hover {
+	color: #ffffff;
+	text-decoration: none;
+}
+

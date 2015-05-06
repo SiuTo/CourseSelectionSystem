@@ -24,7 +24,3 @@ $("#dropCourse").click(function() {
 
 });
 
-$("#back").click(function() {
-	window.location.href="student.php";
-});
-

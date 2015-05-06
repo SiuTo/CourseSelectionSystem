@@ -15,8 +15,8 @@
 			exit;
 		}
 		echo "<div class='row'><h4 class='col-sm-6'>Student: $sid $row[SNAME]</h4>";
-		echo "<div class='col-sm-offset-1 col-sm-2'><button class='btn btn-primary' onclick='editStudent()'>Edit</button></div>";
-		echo "<div class='col-sm-2'><button class='btn btn-danger' onclick='deleteStudetn()'>Delete</button></div></div>";
+		echo "<div class='col-sm-offset-1 col-sm-2'><button class='btn btn-primary'><a href='../student/profile.php?sid=$sid'>Edit</a></button></div>";
+		echo "<div class='col-sm-2'><button class='btn btn-danger' onclick='deleteStudent()'>Delete</button></div></div>";
 
 		require "../student/curriculum.php";
 
