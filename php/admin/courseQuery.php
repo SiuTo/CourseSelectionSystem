@@ -14,14 +14,11 @@
 			echo '<script>alert("The course '.$tid.' doesn\'t exist!");</script>';
 			exit;
 		}
-		echo "<h4>course: $tid $row[CNAME]</h4>";
+		echo "<div class='row'><h4 class='col-sm-3'>course: $tid $row[CNAME]</h4>";
+		echo "<div class='col-sm-1'><button class='btn btn-primary' onclick='dropCourse()'>Edit</button></div>";
+		echo "<div class='col-sm-1'><button class='btn btn-danger' onclick='deleteCourse()'>Delete</button></div></div>";
 
-		$result=mysql_query("SELECT CID, CNAME, CREDIT, CNUM, TNAME FROM COURSE, TEACHER WHERE CID='$cid' AND COURSE.TID=TEACHER.TID GROUP BY CID ASC");
-		echo '<table class="table table-striped">';
-		echo '<thead><tr><th>#</th><th>Course Id</th><th>Course Name</th><th>Credit</th><th>Available</th><th>Teacher</th></tr></thead><tbody>';
-		$row=mysql_fetch_array($result);
-		echo "<tr><td>1</td><td>$row[CID]</td><td>$row[CNAME]</td><td>$row[CREDIT]</td><td>$row[CNUM]</td><td>$row[TNAME]</td></tr>";
-		echo '</tbody></table>';
+		require "../teacher/studentList.php";
 
 	}else
 	if ($did!="")
