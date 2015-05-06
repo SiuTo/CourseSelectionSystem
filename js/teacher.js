@@ -9,7 +9,3 @@ function loadList(courseId) {
 	);
 }
 
-$("#back").click(function() {
-	window.location.href="teacher.php";
-});
-

@@ -49,7 +49,8 @@
 
 					<?php
 						require "../ConnectDB.php";
-						$result=mysql_query("SELECT TID, PASSWORD, TNAME, TBIRTH, TSEX, TTITLE, DNAME FROM TEACHER, DEPARTMENT WHERE TID='$_SESSION[userId]' AND TEACHER.DID=DEPARTMENT.DID");
+						if ($_SESSION["userType"]=="admin") $tid=$_GET["tid"]; else $tid=$_SESSION["userId"];
+						$result=mysql_query("SELECT TID, PASSWORD, TNAME, TBIRTH, TSEX, TTITLE, DNAME FROM TEACHER, DEPARTMENT WHERE TID='$tid' AND TEACHER.DID=DEPARTMENT.DID");
 						$row=mysql_fetch_array($result);
 					?>
 
@@ -58,9 +59,11 @@
 							<div class="form-group">
 								<label for="tid" class="col-sm-3 control-label">Teacher ID</label>
 								<div class="col-sm-7">
-									<input type="text" class="form-control" id="rid" value="<?php echo $row["TID"];?>" readonly>
+									<input type="text" class="form-control" name="tid" id="tid" value="<?php echo $row["TID"];?>" readonly>
 								</div>
 							</div>
+
+							<?php if ($_SESSION["userType"]=="teacher") echo '
 							<div class="form-group">
 								<label for="oldPwd" class="col-sm-3 control-label">Old Password</label>
 								<div class="col-sm-7">
@@ -79,6 +82,7 @@
 									<input type="password" class="form-control" name="newPwdRep" id="newPwdRep">
 								</div>
 							</div>
+							';?>
 							<div class="form-group">
 								<label for="name" class="col-sm-3 control-label">Name</label>
 								<div class="col-sm-7">
@@ -105,17 +109,17 @@
 							<div class="form-group">
 								<label for="title" class="col-sm-3 control-label">Title</label>
 								<div class="col-sm-7">
-									<input type="text" class="form-control" id="title" value="<?php echo $row["TTITLE"];?>" readonly>
+									<input type="text" class="form-control" name="title" id="title" value="<?php echo $row["TTITLE"];?>" <?php if ($_SESSION["userType"]!="admin") echo "readonly"; ?>>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="department" class="col-sm-3 control-label">Department</label>
 								<div class="col-sm-7">
-									<input type="text" class="form-control" id="department" value="<?php echo $row["DNAME"];?>" readonly>
+									<input type="text" class="form-control" name="department" id="department" value="<?php echo $row["DNAME"];?>" <?php if ($_SESSION["userType"]!="admin") echo "readonly"; ?>>
 								</div>
 							</div>
 							<button type="submit" class="btn btn-default col-sm-offset-3 col-sm-2">Submit</button>
-							<button type="button" id="back" class="btn btn-default col-sm-offset-2 col-sm-2">back</button>
+							<button type="button" onclick="window.location.href='<?php if ($_SESSION[userType]=="admin") echo '../admin/admin.php'; else echo 'teacher.php';?>'" class="btn btn-default col-sm-offset-2 col-sm-2">Back</button>
 						</form>
 					</div>
 				</div>

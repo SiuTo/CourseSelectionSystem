@@ -118,7 +118,7 @@
 								</div>
 							</div>
 							<button type="submit" class="btn btn-default col-sm-offset-3 col-sm-2">Submit</button>
-							<button type="button" onclick="window.location.href='<?php if ($_SESSION[userType]=="admin") echo '../admin/admin.php'; else echo 'student.php';?>'" class="btn btn-default col-sm-offset-2 col-sm-2">back</button>
+							<button type="button" onclick="window.location.href='<?php if ($_SESSION[userType]=="admin") echo '../admin/admin.php'; else echo 'student.php';?>'" class="btn btn-default col-sm-offset-2 col-sm-2">Back</button>
 						</form>
 					</div>
 				</div>
