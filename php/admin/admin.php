@@ -80,6 +80,7 @@
 											<input type="text" id="stuDid" class="form-control">
 										</div>
 										<button type="button" class="btn btn-default" id="stuQuery">Query</button>
+										<a type="button" class="btn btn-default" href="stuAdd.php">Add</a>
 									</form>
 								</div>
 							</div>
@@ -114,6 +115,7 @@
 											<input type="text" id="teaDid" class="form-control">
 										</div>
 										<button type="button" class="btn btn-default" id="teaQuery">Query</button>
+										<a type="button" class="btn btn-default" href="teaAdd.php">Add</a>
 									</form>
 								</div>
 							</div>
@@ -148,6 +150,7 @@
 											<input type="text" id="courseDid" class="form-control">
 										</div>
 										<button type="button" class="btn btn-default" id="courseQuery">Query</button>
+										<a type="button" class="btn btn-default" href="courseAdd.php">Add</a>
 									</form>
 								</div>
 							</div>
