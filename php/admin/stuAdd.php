@@ -52,19 +52,19 @@
 							<div class="form-group">
 								<label for="sid" class="col-sm-3 control-label">Student ID</label>
 								<div class="col-sm-7">
-									<input type="text" class="form-control" name="sid" id="sid">
+									<input type="text" class="form-control" name="sid" id="sid" required="required">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="name" class="col-sm-3 control-label">Name</label>
 								<div class="col-sm-7">
-									<input type="text" class="form-control" id="name" name="name">
+									<input type="text" class="form-control" id="name" name="name" required="required">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="birth" class="col-sm-3 control-label">Birth</label>
 								<div class="col-sm-7">
-									<input type="text" class="form-control" id="birth" name="birth">
+									<input type="date" class="form-control" id="birth" name="birth">
 								</div>
 							</div>
 							<div class="form-group">
@@ -81,7 +81,7 @@
 							<div class="form-group">
 								<label for="year" class="col-sm-3 control-label">Registered in</label>
 								<div class="col-sm-7">
-									<input type="text" class="form-control" name="year" id="year">
+									<input type="number" class="form-control" name="year" id="year" min="1900" max="2100" step="1">
 								</div>
 							</div>
 							<div class="form-group">

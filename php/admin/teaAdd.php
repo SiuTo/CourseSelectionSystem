@@ -52,11 +52,11 @@
 							<div class="form-group">
 								<label for="tid" class="col-sm-3 control-label">Teacher ID</label>
 								<div class="col-sm-7">
-									<input type="text" class="form-control" name="tid" id="tid">
+									<input type="text" class="form-control" name="tid" id="tid" required="required">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="name" class="col-sm-3 control-label">Name</label>
+								<label for="name" class="col-sm-3 control-label" required="required">Name</label>
 								<div class="col-sm-7">
 									<input type="text" class="form-control" id="name" name="name">
 								</div>
@@ -64,7 +64,7 @@
 							<div class="form-group">
 								<label for="birth" class="col-sm-3 control-label">Birth</label>
 								<div class="col-sm-7">
-									<input type="text" class="form-control" id="birth" name="birth">
+									<input type="date" class="form-control" id="birth" name="birth">
 								</div>
 							</div>
 							<div class="form-group">

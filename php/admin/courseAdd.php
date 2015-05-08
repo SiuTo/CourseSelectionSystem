@@ -52,25 +52,25 @@
 							<div class="form-group">
 								<label for="cid" class="col-sm-3 control-label">Course ID</label>
 								<div class="col-sm-7">
-									<input type="text" class="form-control" name="cid" id="cid">
+									<input type="text" class="form-control" name="cid" id="cid" required="required">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="name" class="col-sm-3 control-label">Name</label>
 								<div class="col-sm-7">
-									<input type="text" class="form-control" id="name" name="name">
+									<input type="text" class="form-control" id="name" name="name" required="required">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="num" class="col-sm-3 control-label">Available</label>
 								<div class="col-sm-7">
-									<input type="text" class="form-control" id="num" name="num">
+									<input type="number" class="form-control" id="num" name="num" min="1" max="10000" step="1">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="credit" class="col-sm-3 control-label">Credit</label>
 								<div class="col-sm-7">
-									<input type="text" class="form-control" name="credit" id="credit">
+									<input type="number" class="form-control" name="credit" id="credit" min="1" max="10" step="1">
 								</div>
 							</div>
 							<div class="form-group">

@@ -65,7 +65,7 @@
 							<div class="form-group">
 								<label for="oldPwd" class="col-sm-3 control-label">Old Password</label>
 								<div class="col-sm-7">
-									<input type="password" class="form-control" name="oldPwd" id="oldPwd">
+									<input type="password" class="form-control" name="oldPwd" id="oldPwd" required="required">
 								</div>
 							</div>
 							<div class="form-group">
@@ -83,13 +83,13 @@
 							<div class="form-group">
 								<label for="name" class="col-sm-3 control-label">Name</label>
 								<div class="col-sm-7">
-									<input type="text" class="form-control" id="name" name="name" value="<?php echo $row["ANAME"];?>">
+									<input type="text" class="form-control" id="name" name="name" required="required" value="<?php echo $row["ANAME"];?>">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="birth" class="col-sm-3 control-label">Birth</label>
 								<div class="col-sm-7">
-									<input type="text" class="form-control" id="birth" name="birth" value="<?php echo $row["ABIRTH"];?>">
+									<input type="date" class="form-control" id="birth" name="birth" value="<?php echo $row["ABIRTH"];?>">
 								</div>
 							</div>
 							<div class="form-group">

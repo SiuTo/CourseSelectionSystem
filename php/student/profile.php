@@ -66,7 +66,7 @@
 							<div class="form-group">
 								<label for="oldPwd" class="col-sm-3 control-label">Old Password</label>
 								<div class="col-sm-7">
-									<input type="password" class="form-control" name="oldPwd" id="oldPwd">
+									<input type="password" class="form-control" name="oldPwd" id="oldPwd" required="required">
 								</div>
 							</div>
 							<div class="form-group">
@@ -85,13 +85,13 @@
 							<div class="form-group">
 								<label for="name" class="col-sm-3 control-label">Name</label>
 								<div class="col-sm-7">
-									<input type="text" class="form-control" id="name" name="name" value="<?php echo $row["SNAME"];?>">
+									<input type="text" class="form-control" id="name" name="name" value="<?php echo $row["SNAME"];?>" required="required">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="birth" class="col-sm-3 control-label">Birth</label>
 								<div class="col-sm-7">
-									<input type="text" class="form-control" id="birth" name="birth" value="<?php echo $row["SBIRTH"];?>">
+									<input type="date" class="form-control" id="birth" name="birth" value="<?php echo $row["SBIRTH"];?>">
 								</div>
 							</div>
 							<div class="form-group">
@@ -108,7 +108,7 @@
 							<div class="form-group">
 								<label for="year" class="col-sm-3 control-label">Registered in</label>
 								<div class="col-sm-7">
-									<input type="text" class="form-control" name="year" id="year" value="<?php echo $row["SYEAR"];?>" <?php if ($_SESSION["userType"]!="admin") echo "readonly"; ?>>
+									<input type="number" class="form-control" name="year" id="year" min="1900" max="2100" step="1" value="<?php echo $row["SYEAR"];?>" <?php if ($_SESSION["userType"]!="admin") echo "readonly"; ?>>
 								</div>
 							</div>
 							<div class="form-group">
