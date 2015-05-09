@@ -1,0 +1,16 @@
+\contentsline {section}{\numberline {1}系统功能介绍及展示}{1}
+\contentsline {subsection}{\numberline {1.1}系统功能介绍}{1}
+\contentsline {subsubsection}{\numberline {1.1.1}用户权限}{1}
+\contentsline {subsubsection}{\numberline {1.1.2}系统功能}{1}
+\contentsline {subsection}{\numberline {1.2}系统功能展示}{1}
+\contentsline {subsubsection}{\numberline {1.2.1}首页}{1}
+\contentsline {subsubsection}{\numberline {1.2.2}学生}{2}
+\contentsline {subsubsection}{\numberline {1.2.3}教师}{3}
+\contentsline {subsubsection}{\numberline {1.2.4}管理员}{4}
+\contentsline {section}{\numberline {2}数据库的概念设计}{5}
+\contentsline {subsection}{\numberline {2.1}设计思路}{5}
+\contentsline {subsection}{\numberline {2.2}ER图}{5}
+\contentsline {section}{\numberline {3}数据库的逻辑设计}{5}
+\contentsline {subsection}{\numberline {3.1}表关系}{5}
+\contentsline {subsection}{\numberline {3.2}建表语句}{6}
+\contentsline {section}{\numberline {4}实验总结}{8}
