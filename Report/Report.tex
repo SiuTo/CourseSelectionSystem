@@ -2,18 +2,18 @@
 
 \usepackage[margin=60pt]{geometry}
 
-%\usepackage{fontspec}
-%\setmainfont{Arial}
-%\setsansfont{Arial}
-%\setmonofont{Consolas}
+\usepackage{fontspec}
+\setmainfont{Arial}
+\setsansfont{Arial}
+\setmonofont{Consolas}
 
 \usepackage{xeCJK}
-%\setCJKmainfont[BoldFont={FZDaHei-B02}, ItalicFont={FZXingKai-S04}]{FZLanTingHei-R-GBK}
-%\setCJKsansfont{FZLanTingHei-R-GBK}
-%\setCJKmonofont{FZLanTingHei-R-GBK}
-\setCJKmainfont[BoldFont=STHeiti, ItalicFont=STKaiti]{STSong}
-\setCJKsansfont[BoldFont=STHeiti]{STXihei}
-\setCJKmonofont{STFangsong}
+\setCJKmainfont[BoldFont={FZDaHei-B02}, ItalicFont={FZXingKai-S04}]{FZLanTingHei-R-GBK}
+\setCJKsansfont{FZLanTingHei-R-GBK}
+\setCJKmonofont{FZLanTingHei-R-GBK}
+%\setCJKmainfont[BoldFont=STHeiti, ItalicFont=STKaiti]{STSong}
+%\setCJKsansfont[BoldFont=STHeiti]{STXihei}
+%\setCJKmonofont{STFangsong}
 
 \usepackage{enumitem}
 \setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=0pt}
@@ -64,11 +64,19 @@
 
 \section{系统功能介绍及展示}
 
+\subsection{系统实现}
+\begin{itemize}
+	\item B/S架构, Ubuntu+apache+MySQL+php
+	\item 前端框架bootstrap
+	\item 3种用户的各操作均采用异步加载的方式实现
+	\item 界面设计采用统一的风格，每个页面均有页头，并且在右上角显示当前登陆用户的编号；每个用户的操作界面均由左边的操作面板和右边用于显示操作结果的面板组成；每个用户的个人信息页面均有一个居中的面板，以及底部的提交和后退按钮。
+\end{itemize}
+
 \subsection{系统功能介绍}
 
 \subsubsection{用户权限}
 \begin{itemize}
-    \item 学生：选课、退课、修改个人信息
+    \item 学生：查看已选课程、查询课程信息、选课、退课、修改个人信息
     \item 教师：查看开课情况、查看选课名单、修改个人信息
     \item 教务员：添加、删除及修改学生、教师和课程的所有信息
 \end{itemize}
@@ -80,9 +88,11 @@
     \item 个人信息的修改，以及权限高的用户对权限低的用户的修改
 \end{itemize}
 
+\newpage
 \subsection{系统功能展示}
 
 \subsubsection{首页}
+图1即为选课系统的首页，学生、教师、教务员均可通过账号和密码进行登录。对于未登陆的用户，若尝试进入除首页外的任何页面，都会要求登陆并自动跳转至首页。同时，系统允许用户进行注册，但不能注册已有的账号。
 
 	\begin{figure}[ht]
 		\centering
@@ -90,7 +100,14 @@
 		\caption{Index}
 	\end{figure}
 
-	图1即为选课系统的首页，学生、教师、教务员均可通过账号和密码进行登录。登录后，可以点击右上角的账号进行登出和修改个人信息，修改界面如图4所示。同时，系统允许用户进行注册。
+
+\newpage
+\subsubsection{个人信息}
+学生、教师、教务员登陆后可以点击右上角的账号查看、修改个人信息，或进行登出。
+
+修改界面如图4所示。用户需要输入正确的密码才能进行修改。并且系统对于用户的输入加入了必要的验证，如学生/教师/课程的名字不能为空，学生/教师的出生年月要求符合格式并在1900年至2100年之间，课程的学分数只能为1到10之间的整数。还有学生和教师对于部分个人信息并没有修改的权限，只有教务员才能修改。
+
+用户登出后会自动跳转至首页。用户只有登出后才能登陆其他账号，否则进入首页会自动跳转至该用户的操作界面。
 
 	\begin{figure}[ht]
 		\begin{minipage}{0.5\textwidth}
@@ -114,11 +131,11 @@
 \newpage
 \subsubsection{学生}
 
-	学生登录后的界面如图5所示，学生可以查询自己的课表及可选课程，也可以通过选课号进行选课、退课及课程信息查询。
+	学生登录后的界面如图5所示，学生可以查询自己的课表，模糊查询任意课程的信息，还可以通过选课号进行选课、退课。
 
 	图6至图11展示了对于选课号的操作，系统将会判断选课号是否存在，以及学生是否选择该课程。对于选课，系统还会自动判断课程之间是否有时间冲突。
 
-	图12是对上课时间和上课地点的查询，在课程查询中，把鼠标移到课程号上的时候，会显示该课程的上课时间和上课地点。
+	图12是对上课时间和上课地点的查询，在课程查询中，把鼠标移到课程号上的时候，会显示该课程所有的上课时间和上课地点。
 
 	
 	\begin{figure}[ht]
@@ -181,7 +198,7 @@
 \newpage
 \subsubsection{教师}
 
-	\begin{figure}[h]
+	\begin{figure}[ht]
 		\begin{minipage}{0.5\textwidth}
 			\centering
 			\includegraphics[width=2.5in]{teacher}
@@ -201,15 +218,15 @@
 \newpage
 \subsubsection{教务员}
 
-	\begin{figure}[h]
+	\begin{figure}[ht]
 		\centering
 		\includegraphics[width=6in]{adover}
 		\caption{Admin}
 	\end{figure}
 
-	教务员拥有对学生、教师和课程的添加、删除及修改权限。图16至图20显示，教务员可以添加或删除学生、教师及课程，也可以单独修改学生、教师和课程的信息，同时，教务员也可以为学生选课。
+	教务员拥有对学生、教师和课程的查询、添加、删除及修改权限，页面也分为了相应的3个标签页。查询操作支持按院系查询和按学生号/教师号/课程号两种。输入院系号可以查询该院系的学生/教师/课程。输入学生号/教师号/课程号可以查询其信息，并进一步执行编辑或删除操作。具体来说，输入学生号可以查询该学生的信息及其所选课程，并可以进一步为学生选课或退课；输入教师号可以查询该教师的信息及其所开课程；输入课程号可以查询该课程的信息及选了这门课程的学生。如图16至图20所示。
 
-	\begin{figure}[h]
+	\begin{figure}[ht]
 		\begin{minipage}{0.5\textwidth}
 			\centering
 			\includegraphics[width=3in]{adstu}
@@ -220,9 +237,11 @@
 			\includegraphics[width=3in]{adtea}
 			\caption{Admin Teacher}
 		\end{minipage}
+	\end{figure}
 
-			\vspace{0.8cm}
+	\vspace{0.8cm}
 
+	\begin{figure}[ht]
 		\begin{minipage}{0.5\textwidth}
 			\centering
 			\includegraphics[width=3in]{adcou}
@@ -233,9 +252,11 @@
 			\includegraphics[width=3in]{addep}
 			\caption{Group By Department}
 		\end{minipage}
+	\end{figure}
 
-			\vspace{0.8cm}
+	\vspace{0.8cm}
 
+	\begin{figure}[ht]
 		\centering
 		\includegraphics[width=4in]{adadd}
 		\caption{Add Person}
@@ -254,7 +275,7 @@
 
 \subsection{表关系}
 由上述ER图可知，一共有7个实体，其结构如下：
-\begin{itemize}
+\begin{itemize}[leftmargin=4em]
     \item 学生（\underline{学号}，登陆密码，姓名，出生年月，性别，入学年份）
     \item 教师（\underline{工号}，登陆密码，姓名，出生年月，性别，职称）
     \item 课程（\underline{选课号}，课程名，人数，学分）
@@ -264,8 +285,8 @@
     \item 上课地点（\underline{地点}）
 \end{itemize}
 
-实体之间有5个联系，其中有3个1：N的联系，1个M：N的联系，1个1：N：N的联系，联系的属性如下：
-\begin{itemize}
+实体之间有5个联系，其中有3个1:N的联系，1个M:N的联系，1个1:N:N的联系，联系的属性如下：
+\begin{itemize}[leftmargin=4em]
     \item 学生所属院系（院系编号，学号）
     \item 教师所属院系（院系编号，工号）
     \item 课程教师信息（选课号，工号）
@@ -273,8 +294,8 @@
     \item 课程安排（选课号，上课时间，上课地点）
 \end{itemize}
 
-根据转换规则，我们可以将M：N的联系和1：M：N的联系转换为实体，因此，上述ER图可以转换为如下关系模式：
-\begin{itemize}
+根据转换规则，我们可以将M:N的联系和1:M:N的联系转换为实体，因此，上述ER图可以转换为如下关系模式：
+\begin{itemize}[leftmargin=4em]
     \item 学生（\underline{学号}，登陆密码，姓名，出生年月，性别，入学年份，\uwave{院系编号}）
     \item 教师（\underline{工号}，登陆密码，姓名，出生年月，性别，职称，\uwave{院系编号}）
     \item 课程（\underline{选课号}，课程名，人数，学分，\uwave{教师工号}）
@@ -290,6 +311,6 @@
 
 \section{实验总结}
 
-本实验是第一次由自己完成从设计数据库开始到完成一个成熟系统的一系列过程。加深理解了数据库的设计、ER图及ER图到关系模式的转换。通过实验，熟练掌握了Mysql以及SQL语句的使用，学会了对数据库的创建、修改、查询以及使用。同时，由于系统的需要，锻炼了嵌入式SQL的使用能力，也对PHP及HTML有了一定的掌握。在此次实验中，也暴露出对数据库这门学科的一些问题，并在实验的调试及讨论中获得了解决。作为本学期第一次实验，为编写数据库相关程序提供了经验，也为第二次实验打下了基础。
+本实验是第一次由自己完成从设计数据库开始到完成一个成熟系统的一系列过程。加深理解了数据库的设计、ER图及ER图到关系模式的转换。通过实验，熟练掌握了Mysql以及SQL语句的使用，学会了对数据库的创建、修改、查询等操作。同时，由于系统的需要，锻炼了嵌入式SQL的使用能力，也对PHP及HTML有了一定的掌握。在此次实验中，也暴露出对数据库这门学科的一些问题，并在实验的调试及讨论中获得了解决。作为本学期第一次实验，为编写数据库相关程序提供了经验，也为第二次实验打下了基础。
 
 \end{document}
