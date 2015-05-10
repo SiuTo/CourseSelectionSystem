@@ -2,15 +2,18 @@
 
 \usepackage[margin=60pt]{geometry}
 
-\usepackage{fontspec}
-\setmainfont{Arial}
-\setsansfont{Arial}
-\setmonofont{Consolas}
+%\usepackage{fontspec}
+%\setmainfont{Arial}
+%\setsansfont{Arial}
+%\setmonofont{Consolas}
 
 \usepackage{xeCJK}
-\setCJKmainfont[BoldFont={FZDaHei-B02}, ItalicFont={FZXingKai-S04}]{FZLanTingHei-R-GBK}
-\setCJKsansfont{FZLanTingHei-R-GBK}
-\setCJKmonofont{FZLanTingHei-R-GBK}
+%\setCJKmainfont[BoldFont={FZDaHei-B02}, ItalicFont={FZXingKai-S04}]{FZLanTingHei-R-GBK}
+%\setCJKsansfont{FZLanTingHei-R-GBK}
+%\setCJKmonofont{FZLanTingHei-R-GBK}
+\setCJKmainfont[BoldFont=STHeiti, ItalicFont=STKaiti]{STSong}
+\setCJKsansfont[BoldFont=STHeiti]{STXihei}
+\setCJKmonofont{STFangsong}
 
 \usepackage{enumitem}
 \setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=0pt}
@@ -32,6 +35,8 @@
 \usepackage{graphicx}
 \usepackage{subfigure}
 	\renewcommand\figurename{图}
+
+\usepackage{ulem}
 
 \CTEXoptions[today=small]
 
@@ -186,6 +191,8 @@
 			\includegraphics[width=2.5in]{adteacou}
 			\caption{Student List}
 		\end{minipage}
+			\vspace{0.8cm}
+
 	\end{figure}
 
 	教师页面的基本功能为查看该教师所授课程列表，如图13、图14所示。同时，教师还可以查询他的课程的选课名单，点击图中的人数，即可显示该课程的选课名单。
@@ -213,6 +220,8 @@
 			\caption{Admin Teacher}
 		\end{minipage}
 
+			\vspace{0.8cm}
+
 		\begin{minipage}{0.5\textwidth}
 			\centering
 			\includegraphics[width=3in]{adcou}
@@ -223,6 +232,8 @@
 			\includegraphics[width=3in]{addep}
 			\caption{Group By Department}
 		\end{minipage}
+
+			\vspace{0.8cm}
 
 		\centering
 		\includegraphics[width=4in]{adadd}
@@ -243,13 +254,13 @@
 \subsection{表关系}
 由上述ER图可知，一共有7个实体，其结构如下：
 \begin{itemize}
-    \item 学生（学号，登陆密码，姓名，出生年月，性别，入学年份）
-    \item 教师（工号，登陆密码，姓名，出生年月，性别，职称）
-    \item 课程（选课号，课程名，人数，学分）
-    \item 学院（编号，学院名，院长）
-    \item 教务员（编号，密码，姓名，出生年月，性别）
-    \item 上课时间（时间）
-    \item 上课地点（地点）
+    \item 学生（\underline{学号}，登陆密码，姓名，出生年月，性别，入学年份）
+    \item 教师（\underline{工号}，登陆密码，姓名，出生年月，性别，职称）
+    \item 课程（\underline{选课号}，课程名，人数，学分）
+    \item 学院（\underline{编号}，学院名，院长）
+    \item 教务员（\underline{编号}，密码，姓名，出生年月，性别）
+    \item 上课时间（\underline{时间}）
+    \item 上课地点（\underline{地点}）
 \end{itemize}
 
 实体之间有5个联系，其中有3个1：N的联系，1个M：N的联系，1个1：N：N的联系，联系的属性如下：
@@ -263,13 +274,13 @@
 
 根据转换规则，我们可以将M：N的联系和1：M：N的联系转换为实体，因此，上述ER图可以转换为如下关系模式：
 \begin{itemize}
-    \item 学生（学号，登陆密码，姓名，出生年月，性别，入学年份，院系编号）
-    \item 教师（工号，登陆密码，姓名，出生年月，性别，职称，院系编号）
-    \item 课程（选课号，课程名，人数，学分，教师工号）
-    \item 学院（编号，学院名，院长）
-    \item 教务员（编号，密码，姓名，出生年月，性别）
-    \item 选课信息（选课号，学号，成绩）
-    \item 课程安排（选课号，上课时间，上课地点）
+    \item 学生（\underline{学号}，登陆密码，姓名，出生年月，性别，入学年份，\uwave{院系编号}）
+    \item 教师（\underline{工号}，登陆密码，姓名，出生年月，性别，职称，\uwave{院系编号}）
+    \item 课程（\underline{选课号}，课程名，人数，学分，\uwave{教师工号}）
+    \item 学院（\underline{编号}，学院名，院长）
+    \item 教务员（\underline{编号}，密码，姓名，出生年月，性别）
+    \item 选课信息（\underline{\uwave{选课号}，\uwave{学号}}，成绩）
+    \item 课程安排（\underline{\uwave{选课号}，\uwave{上课时间}}，上课地点）
 \end{itemize}
 
 \subsection{建表语句}
