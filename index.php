@@ -28,7 +28,7 @@
 					<h1>Fudan Course Selection System</h1>
 				</div>
 				<div class="col-sm-4">
-					<div class="page-head-right"><a href="about.html">About</a></div>
+					<div class="page-head-right"><a href="Report/Report.pdf">About</a></div>
 				</div>
 			</div>
 		</div>
