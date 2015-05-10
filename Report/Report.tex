@@ -2,10 +2,15 @@
 
 \usepackage[margin=60pt]{geometry}
 
+\usepackage{fontspec}
+\setmainfont{Arial}
+\setsansfont{Arial}
+\setmonofont{Consolas}
+
 \usepackage{xeCJK}
-\setCJKmainfont[BoldFont=STHeiti, ItalicFont=STKaiti]{STSong}
-\setCJKsansfont[BoldFont=STHeiti]{STXihei}
-\setCJKmonofont{STFangsong}
+\setCJKmainfont[BoldFont={FZDaHei-B02}, ItalicFont={FZXingKai-S04}]{FZLanTingHei-R-GBK}
+\setCJKsansfont{FZLanTingHei-R-GBK}
+\setCJKmonofont{FZLanTingHei-R-GBK}
 
 \usepackage{enumitem}
 \setenumerate[1]{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=0pt}
@@ -13,9 +18,16 @@
 \setdescription{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=0pt}
 
 \usepackage{listings}
-\lstset{language=SQL}
-\lstset{breaklines}
-\lstset{extendedchars=false}
+\lstset{
+	language=SQL,
+	basicstyle=\ttfamily\small,
+	numbers=left,
+	numberstyle=\tiny,
+	breaklines=true,
+	tabsize=4,
+	showstringspaces=true,
+	extendedchars=false
+}
 
 \usepackage{graphicx}
 \usepackage{subfigure}
@@ -51,8 +63,8 @@
 \subsubsection{用户权限}
 \begin{itemize}
     \item 学生：选课、退课、修改个人信息
-    \item 老师：查看开课情况、查看选课名单、修改个人信息
-    \item 管理员：添加、删除及修改学生、教师和课程的所有信息
+    \item 教师：查看开课情况、查看选课名单、修改个人信息
+    \item 教务员：添加、删除及修改学生、教师和课程的所有信息
 \end{itemize}
 
 \subsubsection{系统功能}
@@ -72,7 +84,7 @@
 		\caption{Index}
 	\end{figure}
 
-	图1即为选课系统的首页，学生、老师、教务员均可通过账号和密码进行登录。登录后，可以点击右上角的账号进行登出和修改个人信息，修改界面如图4所示。同时，系统允许用户进行注册。
+	图1即为选课系统的首页，学生、教师、教务员均可通过账号和密码进行登录。登录后，可以点击右上角的账号进行登出和修改个人信息，修改界面如图4所示。同时，系统允许用户进行注册。
 
 	\begin{figure}[ht]
 		\begin{minipage}{0.5\textwidth}
@@ -87,7 +99,7 @@
 		\end{minipage}
 	\end{figure}
 
-	\begin{figure}[h]
+	\begin{figure}[ht]
 		\centering
 		\includegraphics[width=6in]{stupro}
 		\caption{Profile}
@@ -96,7 +108,7 @@
 \newpage
 \subsubsection{学生}
 
-	学生登录后的界面如图5所示，学生可以通过查询自己的课表及可选课程，也可以通过选课号进行选课、退课及课程信息查询。
+	学生登录后的界面如图5所示，学生可以查询自己的课表及可选课程，也可以通过选课号进行选课、退课及课程信息查询。
 
 	图6至图11展示了对于选课号的操作，系统将会判断选课号是否存在，以及学生是否选择该课程。对于选课，系统还会自动判断课程之间是否有时间冲突。
 
@@ -121,8 +133,10 @@
 			\includegraphics[width=3in]{query}
 			\caption{Query}
 		\end{minipage}
+	\end{figure}
+	\vspace{0.8cm}
 
-		\vspace{0.8cm}
+	\begin{figure}[ht]
 
 		\begin{minipage}{0.3\textwidth}
 			\centering
@@ -139,8 +153,10 @@
 			\includegraphics[width=1.5in]{notexist}
 			\caption{Course Not Exist}
 		\end{minipage}
+	\end{figure}
+	\vspace{0.8cm}
 
-		\vspace{0.8cm}
+	\begin{figure}
 
 		\begin{minipage}{0.4\textwidth}
 			\centering
@@ -175,7 +191,7 @@
 	教师页面的基本功能为查看该教师所授课程列表，如图13、图14所示。同时，教师还可以查询他的课程的选课名单，点击图中的人数，即可显示该课程的选课名单。
 
 \newpage
-\subsubsection{管理员}
+\subsubsection{教务员}
 
 	\begin{figure}[h]
 		\centering
@@ -183,7 +199,7 @@
 		\caption{Admin}
 	\end{figure}
 
-	管理员拥有对学生、教师和课程的添加、删除及修改权限。图16至图20显示，管理员可以添加或删除学生、老师及课程，也可以单独修改学生、老师和课程的信息，同时，管理员也可以为学生选课。
+	教务员拥有对学生、教师和课程的添加、删除及修改权限。图16至图20显示，教务员可以添加或删除学生、教师及课程，也可以单独修改学生、教师和课程的信息，同时，教务员也可以为学生选课。
 
 	\begin{figure}[h]
 		\begin{minipage}{0.5\textwidth}
@@ -217,7 +233,7 @@
 \section{数据库的概念设计}
 
 \subsection{设计思路}
-我们分析了选课系统的要求，首先初步确定了问题的所需的实体：学生、老师、课程、院系、教务员。显然，院系和学生之间有一对多的联系，院系与老师之间有一对多的联系，老师和课程之间也有一对多的联系。而学生与课程之间则是一个多对多的联系，从而需要将其转换为一个实体。进一步分析这个模式，发现每个课程有多个上课时间和多个上课地点，于是把上课时间和上课地方拆分为两个实体，它们与课程之间有一个三元的联系。至此，这个关系模式已经设计完成，我们可以据此画出ER图。
+我们分析了选课系统的要求，首先初步确定了问题的所需的实体：学生、教师、课程、院系、教务员。显然，院系和学生之间有一对多的联系，院系与教师之间有一对多的联系，教师和课程之间也有一对多的联系。而学生与课程之间则是一个多对多的联系，从而需要将其转换为一个实体。进一步分析这个模式，发现每个课程有多个上课时间和多个上课地点，于是把上课时间和上课地方拆分为两个实体，它们与课程之间有一个三元的联系。至此，这个关系模式已经设计完成，我们可以据此画出ER图。
 
 \subsection{ER图}
 	\includegraphics[width=6in]{ER图}
@@ -228,10 +244,10 @@
 由上述ER图可知，一共有7个实体，其结构如下：
 \begin{itemize}
     \item 学生（学号，登陆密码，姓名，出生年月，性别，入学年份）
-    \item 老师（工号，登陆密码，姓名，出生年月，性别，职称）
+    \item 教师（工号，登陆密码，姓名，出生年月，性别，职称）
     \item 课程（选课号，课程名，人数，学分）
     \item 学院（编号，学院名，院长）
-    \item 管理员（编号，密码，姓名，出生年月，性别）
+    \item 教务员（编号，密码，姓名，出生年月，性别）
     \item 上课时间（时间）
     \item 上课地点（地点）
 \end{itemize}
@@ -248,97 +264,17 @@
 根据转换规则，我们可以将M：N的联系和1：M：N的联系转换为实体，因此，上述ER图可以转换为如下关系模式：
 \begin{itemize}
     \item 学生（学号，登陆密码，姓名，出生年月，性别，入学年份，院系编号）
-    \item 老师（工号，登陆密码，姓名，出生年月，性别，职称，院系编号）
+    \item 教师（工号，登陆密码，姓名，出生年月，性别，职称，院系编号）
     \item 课程（选课号，课程名，人数，学分，教师工号）
     \item 学院（编号，学院名，院长）
-    \item 管理员（编号，密码，姓名，出生年月，性别）
+    \item 教务员（编号，密码，姓名，出生年月，性别）
     \item 选课信息（选课号，学号，成绩）
     \item 课程安排（选课号，上课时间，上课地点）
 \end{itemize}
 
 \subsection{建表语句}
 
-\begin{lstlisting}
-#CREATE DATABASE CourseSelect;
-
-USE CourseSelect;
-
-CREATE TABLE DEPARTMENT
-(
-	DID VARCHAR(11) NOT NULL,		#ID
-	DNAME VARCHAR(50) NOT NULL,		#部门名称
-	MANAGER VARCHAR(50),			#院长
-	PRIMARY KEY(DID)
-);
-
-CREATE TABLE TEACHER 
-(
-	TID	VARCHAR(11) NOT NULL,		#ID
-	PASSWORD VARCHAR(20) NOT NULL,  #密码
-	TNAME VARCHAR(50),				#姓名
-	TBIRTH DATE,					#生日
-	TSEX CHAR(1),					#性别
-	TTITLE VARCHAR(20),				#职称
-	DID VARCHAR(11),				#所属院系
-	PRIMARY KEY(TID),
-	FOREIGN KEY(DID) REFERENCES DEPARTMENT(DID)
-);
-
-CREATE TABLE STUDENT
-(
-	SID VARCHAR(11) NOT NULL,		#ID
-	PASSWORD VARCHAR(20) NOT NULL,  #密码
-	SNAME VARCHAR(50),				#姓名
-	SBIRTH DATE,					#生日
-	SSEX CHAR(1),					#性别
-	SYEAR CHAR(4),					#入学年份
-	DID VARCHAR(11),				#所属院系
-	PRIMARY KEY(SID),
-	FOREIGN KEY(DID) REFERENCES DEPARTMENT(DID)
-);
-
-CREATE TABLE ADMIN
-(
-	AID VARCHAR(11) NOT NULL,		#ID
-	PASSWORD VARCHAR(20) NOT NULL,  #密码
-	ANAME VARCHAR(50),				#姓名
-	ABIRTH DATE,					#生日
-	ASEX CHAR(1),					#性别
-	PRIMARY KEY(AID)
-);
-
-CREATE TABLE COURSE
-(
-	CID VARCHAR(11) NOT NULL,		#选课号
-	CNAME VARCHAR(50) NOT NULL,		#课程名字
-	CNUM INT,						#人数
-	CREDIT INT,						#学分
-	TID VARCHAR(11),				#授课老师
-	PRIMARY KEY(CID),
-	FOREIGN KEY(TID) REFERENCES TEACHER(TID),
-	CHECK (CNUM BETWEEN 1 AND 10000),
-	CHECK (CREDIT BETWEEN 1 AND 10)
-);
-
-CREATE TABLE SC
-(
-	SID VARCHAR(11) NOT NULL,		#学号
-	CID VARCHAR(11) NOT NULL,		#选课号
-	SCORE INT,						#成绩
-	PRIMARY KEY(SID, CID),
-	FOREIGN KEY(SID) REFERENCES STUDENT(SID),
-	FOREIGN KEY(CID) REFERENCES COURSE(CID)
-);
-
-CREATE TABLE CSCHEDULE
-(
-	CID VARCHAR(11) NOT NULL,		#选课号
-	TIME VARCHAR(20) NOT NULL,		#上课时间
-	PLACE VARCHAR(20),				#上课地点
-	PRIMARY KEY(CID, TIME),
-	FOREIGN KEY(CID) REFERENCES COURSE(CID)
-);
-\end{lstlisting}
+\lstinputlisting{../SQL/CreateTable.sql}
 
 \section{实验总结}
 
